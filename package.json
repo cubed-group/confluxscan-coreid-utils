@@ -1,0 +1,46 @@
+{
+  "name": "@cubed/coreid-util",
+  "version": "0.1.2",
+  "description": "coreid util",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "coreid",
+    "CNS"
+  ],
+  "author": "0x74616e67 <0x74616e67@gmail.com>",
+  "license": "ISC",
+  "main": "./dist/coreid-util.umd.cjs",
+  "module": "./dist/coreid-util.js",
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^11.0.0",
+    "@types/node": "^16.18.11",
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "@vitejs/plugin-react": "^3.1.0",
+    "terser": "^5.16.1",
+    "ts-loader": "^9.4.2",
+    "tslib": "^2.4.1",
+    "typescript": "^4.9.4",
+    "vite": "^4.1.0",
+    "bignumber.js": "^9.1.1",
+    "buffer": "^6.0.3",
+    "js-conflux-sdk": "^2.1.8",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "peerDependencies": {
+    "bignumber.js": "^9.1.1",
+    "buffer": "^6.0.3",
+    "js-conflux-sdk": "^2.1.8",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "files": [
+    "dist"
+  ]
+}
