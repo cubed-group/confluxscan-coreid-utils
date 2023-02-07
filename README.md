@@ -1,4 +1,4 @@
-# Confluxscan CNS resources
+# CoreID resources
 
 - SDK: [web3ns.js](https://github.com/web3-identity/web3ns.js)
 - Docs: 
@@ -7,50 +7,77 @@
   - [Contracts Docs](https://github.com/web3-identity/cns-contracts/tree/master/docs)
   - [Demo](https://github.com/zctocm/cns-demo)
   - [Contracts API](https://github.com/web3-identity/cns-contracts/blob/master/docs/index.md#solidity-api)
+  
+# CoreID util project default config:
+```javascript
+const NETWORK = {
+  mainnet: 1029,
+  testnet: 1,
+};
 
-# Getting Started with Create React App
+const DEFAULT_NETWORK = "testnet";
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+const RPC = {
+  mainnet: "https://main.confluxrpc.com",
+  testnet: "https://test.confluxrpc.com",
+};
+
+const ROOT = ".web3";
+
+const RPC = {
+  mainnet: "https://main.confluxrpc.com",
+  testnet: "https://test.confluxrpc.com",
+}
+
+const CONTRACTS = {
+  // TBD
+  mainnet: {
+    REVERSE_REGISTRAR: "",
+    BASE_REGISTRAR: "",
+    NAME_WRAPPER: "",
+    WEB3_CONTROLLER: "",
+    PUBLIC_RESOLVER: "",
+    REVERSE_RECORDS: "",
+    MULTICALL: "cfx:achfcd4z000fw2977dz09z8nat38wxbfrynkxpe15v",
+  },
+  // come from: https://web3-username.gitbook.io/.web3-username-docs/deployment#testnet
+  testnet: {
+    REVERSE_REGISTRAR: "cfxtest:acfmezysbf86jy3jnw835bnamxp08dxzd61w5ur8hy",
+    BASE_REGISTRAR: "cfxtest:acbp262fvjzva1raef4n3e5yyszy9spsc20cmztnya",
+    NAME_WRAPPER: "cfxtest:acbttry22rsx7k54ms6hbkc0c8tf680u5pc0r31ef5",
+    WEB3_CONTROLLER: "cfxtest:acde0h4f9nz70h146d4p0wbbx38zamwhue3uce1ndt",
+    PUBLIC_RESOLVER: "cfxtest:acfcb2fv6t8xrxyyx3x1atwmdrhh5xvfd21zsje216",
+    REVERSE_RECORDS: "cfxtest:acccv089mvek41rsmjyf1yyg922phjd0ppt16hfuv1",
+    MULTICALL: "cfxtest:acexk57dcp2gcaydnyyz615b1993c319uup08gwwzs",
+  },
+}
+```
+
+## Install Dependence
+Note: This project is depending on [js-conflux-sdk](https://www.npmjs.com/package/js-conflux-sdk), if your project does not use it, run `npm i -D js-conflux-sdk` to install first.
+
+# Getting Started with App
+
+This project was bootstrapped with [Vite](https://cn.vitejs.dev/guide/#scaffolding-your-first-vite-project).
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `npm start`
+### `npm i`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Install app dependence
+
+### `npm run dev`
+
+Runs the app in the development mode.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Builds the app for production to the `dist` folder.\
+It correctly bundles project in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+The build is minified.
