@@ -36,6 +36,7 @@ function App() {
       // console.log("status is: ", status);
 
       // console.log("-----------");
+
       const multicall = await coreid.multicall([
         {
           method: "ownerOf",
@@ -70,6 +71,7 @@ function App() {
           args: [NAME1],
         },
       ]);
+
       console.log("multicall is: ", multicall);
     }
 

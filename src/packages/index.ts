@@ -50,6 +50,10 @@ export default class CoreidUtils {
       this.config = {
         ...this.config,
         ...config,
+        contracts: {
+          ...this.config.contracts,
+          ...config?.contracts,
+        },
       };
     }
 

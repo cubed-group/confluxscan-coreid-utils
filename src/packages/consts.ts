@@ -39,7 +39,7 @@ export const CONTRACT_TO_METHOD = {
   BASE_REGISTRAR: ["nameExpires"],
   NAME_WRAPPER: ["ownerOf", "getData", "userDomains"],
   WEB3_CONTROLLER: ["status"],
-  PUBLIC_RESOLVER: ["address"],
+  PUBLIC_RESOLVER: ["address"], // TODO, this is used to get resolver contract address, not forward resolved address
   REVERSE_RECORDS: ["name", "names"],
   MULTICALL: ["aggregate"],
 };
