@@ -12,6 +12,10 @@
     "coreid",
     "CNS"
   ],
+  "engines": {
+    "npm": ">=8.0.0 <9.0.0",
+    "node": ">=16.0.0"
+  },
   "author": "0x74616e67 <0x74616e67@gmail.com>",
   "license": "ISC",
   "main": "./dist/coreid-util.umd.cjs",
