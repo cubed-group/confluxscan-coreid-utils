@@ -364,4 +364,26 @@ export default class CoreidUtils {
       ])
     )[0];
   }
+
+  private registrant_params(name: Name) {
+    if (!name.includes(".")) {
+      throw new Error("invalid param, name should be with top level domain");
+    }
+    return [labelhash(name.split(".")[0])];
+  }
+
+  private registrant_return(data: any) {
+    return data;
+  }
+
+  async registrant(name: Name) {
+    return (
+      await this.multicall([
+        {
+          method: "registrant",
+          args: [name],
+        },
+      ])
+    )[0];
+  }
 }
