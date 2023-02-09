@@ -33,9 +33,6 @@ const coreidutil = new CoreidUtil();
 // Get owner of name
 const owner = await coreidutil.ownerOf(NAME1);
 
-// Get name info, includes: owner of name, fuses and expiration datetime of fuses
-const data = await coreid.getData(NAME1);
-
 // Get owned names of address
 const userDomains = await coreidutil.userDomains(ADDRESS1);
 
@@ -57,15 +54,14 @@ const names = await coreidutil.names([ADDRESS1, ADDRESS1]);
 // Get status of name, results in: Valid, TooShort, Reserved, IllegalChar, Locked, Registered, SoldOut
 const status = await coreidutil.status(NAME1);
 
+// Get controller contract address of name
+const controller = await coreid.controller(NAME1);
+
 // Call multiple different functions with apply different parameters in one RPC call
 const MULTICALL_PARAMS = [
   {
     method: "ownerOf",
     args: [NAME1],
-  },
-  {
-    method: "getData",
-    args: [NAME2],
   },
   {
     method: "userDomains",
@@ -93,6 +89,10 @@ const MULTICALL_PARAMS = [
   },
   {
     method: "status",
+    args: [NAME1],
+  },
+  {
+    method: "controller",
     args: [NAME1],
   },
 ];
@@ -133,6 +133,7 @@ const RPC = {
 const CONTRACTS = {
   // TBD
   mainnet: {
+    CNS_REGISTRY: "",
     REVERSE_REGISTRAR: "",
     BASE_REGISTRAR: "",
     NAME_WRAPPER: "",
@@ -143,6 +144,7 @@ const CONTRACTS = {
   },
   // come from: https://web3-username.gitbook.io/.web3-username-docs/deployment#testnet
   testnet: {
+    CNS_REGISTRY: "cfxtest:acd3rm7y183trhpzvz8m3y72kx1abk4d0jh842585a",
     REVERSE_REGISTRAR: "cfxtest:acfmezysbf86jy3jnw835bnamxp08dxzd61w5ur8hy",
     BASE_REGISTRAR: "cfxtest:acbp262fvjzva1raef4n3e5yyszy9spsc20cmztnya",
     NAME_WRAPPER: "cfxtest:acbttry22rsx7k54ms6hbkc0c8tf680u5pc0r31ef5",

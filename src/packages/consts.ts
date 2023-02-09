@@ -3,6 +3,7 @@ import { ContractsAddress } from "./interface";
 export const CONTRACTS = {
   // TODO
   mainnet: {
+    CNS_REGISTRY: "",
     REVERSE_REGISTRAR: "",
     BASE_REGISTRAR: "",
     NAME_WRAPPER: "",
@@ -13,6 +14,7 @@ export const CONTRACTS = {
   },
   // come from: https://web3-username.gitbook.io/.web3-username-docs/deployment#testnet
   testnet: {
+    CNS_REGISTRY: "cfxtest:acd3rm7y183trhpzvz8m3y72kx1abk4d0jh842585a",
     REVERSE_REGISTRAR: "cfxtest:acfmezysbf86jy3jnw835bnamxp08dxzd61w5ur8hy",
     BASE_REGISTRAR: "cfxtest:acbp262fvjzva1raef4n3e5yyszy9spsc20cmztnya",
     NAME_WRAPPER: "cfxtest:acbttry22rsx7k54ms6hbkc0c8tf680u5pc0r31ef5",
@@ -24,6 +26,7 @@ export const CONTRACTS = {
 };
 
 export const CONTRACTS_NAME = [
+  "CNS_REGISTRY",
   "REVERSE_REGISTRAR",
   "BASE_REGISTRAR",
   "NAME_WRAPPER",
@@ -35,6 +38,7 @@ export const CONTRACTS_NAME = [
 
 // if the method has a different function name than the abi accepts, the relationship needs to be defined in the METHOD_MAP map
 export const CONTRACT_TO_METHOD = {
+  CNS_REGISTRY: ["controller"],
   REVERSE_REGISTRAR: [""],
   BASE_REGISTRAR: ["nameExpires", "registrant"],
   NAME_WRAPPER: ["ownerOf", "getData", "userDomains"],
@@ -52,6 +56,7 @@ export const METHOD_MAP = {
   status: "labelStatus",
   registrant: "ownerOf",
   parent: "addr(bytes32)",
+  controller: "owner",
 } as const;
 
 export const NETWORK = {

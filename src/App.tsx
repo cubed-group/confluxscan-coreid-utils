@@ -15,9 +15,6 @@ function App() {
       // const owner = await coreid.ownerOf(NAME1);
       // console.log("owner is: ", owner);
 
-      // const data = await coreid.getData(NAME1);
-      // console.log("data is: ", data);
-
       // const userDomains = await coreid.userDomains(ADDRESS1);
       // console.log("userDomains is: ", userDomains);
 
@@ -39,16 +36,21 @@ function App() {
       // const status = await coreid.status(NAME1);
       // console.log("status is: ", status);
 
+      // const registrant = await coreid.registrant(NAME1);
+      // console.log(`registrant of ${NAME1} is: `, registrant);
+
+      // const registrant2 = await coreid.registrant(NAME2);
+      // console.log(`registrant2 of ${NAME2} is: `, registrant2);
+
+      // const controller = await coreid.controller(NAME1);
+      // console.log("controller is: ", controller);
+
       // console.log("-----------");
 
       const MULTICALL_PARAMS = [
         {
           method: "ownerOf",
           args: [NAME1],
-        },
-        {
-          method: "getData",
-          args: [NAME2],
         },
         {
           method: "userDomains",
@@ -76,6 +78,10 @@ function App() {
         },
         {
           method: "status",
+          args: [NAME1],
+        },
+        {
+          method: "controller",
           args: [NAME1],
         },
       ];

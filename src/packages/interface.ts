@@ -36,6 +36,7 @@ type ExtendContract<K extends string | number | symbol> = {
 };
 
 export interface Contracts {
+  CNS_REGISTRY?: ExtendContract<typeof CONTRACT_TO_METHOD.CNS_REGISTRY[number]>;
   REVERSE_REGISTRAR?: ExtendContract<
     typeof CONTRACT_TO_METHOD.REVERSE_REGISTRAR[number]
   >;

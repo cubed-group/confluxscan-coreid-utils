@@ -17,6 +17,7 @@ import {
   BaseRegistrarABI,
   ReverseRecordsABI,
   WEB3CONTROLLERABI,
+  CNSRegistryABI,
 } from "./contracts";
 import {
   Config,
@@ -67,6 +68,11 @@ export default class CoreidUtils {
       address: this.config.contracts.MULTICALL,
     });
 
+    this.contracts.CNS_REGISTRY = this.conflux.Contract({
+      abi: CNSRegistryABI,
+      address: this.config.contracts.CNS_REGISTRY,
+    });
+
     this.contracts.NAME_WRAPPER = this.conflux.Contract({
       abi: NameWrapperABI,
       address: this.config.contracts.NAME_WRAPPER,
@@ -97,11 +103,11 @@ export default class CoreidUtils {
    * @example:
    * coreidutils.multicall([
    *   {
-   *     method: 'getOwner',
+   *     method: 'ownerOf',
    *     args: ['666666.web3']
    *   },
    *   {
-   *     method: 'getData',
+   *     method: 'address',
    *     args: ['666666.web3']
    *   },
    * ])
@@ -200,7 +206,7 @@ export default class CoreidUtils {
     ];
   }
 
-  async getData(name: Name) {
+  private async getData(name: Name) {
     return (
       await this.multicall([
         {
@@ -381,6 +387,25 @@ export default class CoreidUtils {
       await this.multicall([
         {
           method: "registrant",
+          args: [name],
+        },
+      ])
+    )[0];
+  }
+
+  private controller_params(name: Name) {
+    return [namehash(name)];
+  }
+
+  private controller_return(data: any) {
+    return data;
+  }
+
+  async controller(name: Name) {
+    return (
+      await this.multicall([
+        {
+          method: "controller",
           args: [name],
         },
       ])

@@ -1,3 +1,4 @@
+export { default as CNSRegistryABI } from "./CNS_REGISTRY.json";
 export { default as ETHRegistrarControllerABI } from "./ETHRegistrarController.json";
 export { default as NameWrapperABI } from "./NameWrapper.json";
 export { default as ReverseRegistrarABI } from "./ReverseRegistrar.json";
