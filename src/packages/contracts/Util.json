@@ -1,0 +1,15 @@
+[
+  "constructor(address,address)",
+  "event OwnershipTransferred(address indexed,address indexed)",
+  "function addr(bytes32) view returns (address)",
+  "function addr(bytes32,uint256) view returns (bytes)",
+  "function addrBatch(bytes32[]) view returns (address[])",
+  "function baseRegistrar() view returns (address)",
+  "function ens() view returns (address)",
+  "function owner() view returns (address)",
+  "function ownerOf(uint256) view returns (address)",
+  "function renounceOwnership()",
+  "function setBaseRegistrar(address)",
+  "function setENS(address)",
+  "function transferOwnership(address)"
+]

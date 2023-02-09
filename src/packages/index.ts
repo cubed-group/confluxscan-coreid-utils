@@ -13,11 +13,11 @@ import {
 import {
   NameWrapperABI,
   MulticallABI,
-  PublicResolverABI,
   BaseRegistrarABI,
   ReverseRecordsABI,
   WEB3CONTROLLERABI,
   CNSRegistryABI,
+  UtilABI,
 } from "./contracts";
 import {
   Config,
@@ -78,11 +78,6 @@ export default class CoreidUtils {
       address: this.config.contracts.NAME_WRAPPER,
     });
 
-    this.contracts.PUBLIC_RESOLVER = this.conflux.Contract({
-      abi: PublicResolverABI,
-      address: this.config.contracts.PUBLIC_RESOLVER,
-    });
-
     this.contracts.BASE_REGISTRAR = this.conflux.Contract({
       abi: BaseRegistrarABI,
       address: this.config.contracts.BASE_REGISTRAR,
@@ -96,6 +91,11 @@ export default class CoreidUtils {
     this.contracts.WEB3_CONTROLLER = this.conflux.Contract({
       abi: WEB3CONTROLLERABI,
       address: this.config.contracts.WEB3_CONTROLLER,
+    });
+
+    this.contracts.UTIL = this.conflux.Contract({
+      abi: UtilABI,
+      address: this.config.contracts.UTIL,
     });
   }
 

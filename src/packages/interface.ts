@@ -47,12 +47,10 @@ export interface Contracts {
   WEB3_CONTROLLER?: ExtendContract<
     typeof CONTRACT_TO_METHOD.WEB3_CONTROLLER[number]
   >;
-  PUBLIC_RESOLVER?: ExtendContract<
-    typeof CONTRACT_TO_METHOD.PUBLIC_RESOLVER[number]
-  >;
   REVERSE_RECORDS?: ExtendContract<
     typeof CONTRACT_TO_METHOD.REVERSE_RECORDS[number]
   >;
+  UTIL?: ExtendContract<typeof CONTRACT_TO_METHOD.Util[number]>;
   MULTICALL?: ExtendContract<typeof CONTRACT_TO_METHOD.MULTICALL[number]>;
 }
 
