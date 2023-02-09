@@ -54,6 +54,9 @@ const names = await coreidutil.names([ADDRESS1, ADDRESS1]);
 // Get status of name, results in: Valid, TooShort, Reserved, IllegalChar, Locked, Registered, SoldOut
 const status = await coreidutil.status(NAME1);
 
+// Get registrant contract address of name
+const registrant = await coreid.registrant(NAME1);
+
 // Get controller contract address of name
 const controller = await coreid.controller(NAME1);
 
@@ -89,6 +92,10 @@ const MULTICALL_PARAMS = [
   },
   {
     method: "status",
+    args: [NAME1],
+  },
+  {
+    method: "registrant",
     args: [NAME1],
   },
   {
@@ -140,20 +147,21 @@ const CONTRACTS = {
     WEB3_CONTROLLER: "",
     PUBLIC_RESOLVER: "",
     REVERSE_RECORDS: "",
+    UTIL: "",
     MULTICALL: "cfx:achfcd4z000fw2977dz09z8nat38wxbfrynkxpe15v",
   },
   // come from: https://web3-username.gitbook.io/.web3-username-docs/deployment#testnet
   testnet: {
-    CNS_REGISTRY: "cfxtest:acd3rm7y183trhpzvz8m3y72kx1abk4d0jh842585a",
-    REVERSE_REGISTRAR: "cfxtest:acfmezysbf86jy3jnw835bnamxp08dxzd61w5ur8hy",
-    BASE_REGISTRAR: "cfxtest:acbp262fvjzva1raef4n3e5yyszy9spsc20cmztnya",
-    NAME_WRAPPER: "cfxtest:acbttry22rsx7k54ms6hbkc0c8tf680u5pc0r31ef5",
-    WEB3_CONTROLLER: "cfxtest:acde0h4f9nz70h146d4p0wbbx38zamwhue3uce1ndt",
-    PUBLIC_RESOLVER: "cfxtest:acfcb2fv6t8xrxyyx3x1atwmdrhh5xvfd21zsje216",
-    REVERSE_RECORDS: "cfxtest:acccv089mvek41rsmjyf1yyg922phjd0ppt16hfuv1",
+    CNS_REGISTRY: "cfxtest:acemru7fu1u8brtyn3hrtae17kbcd4pd9u2m761bta",
+    REVERSE_REGISTRAR: "cfxtest:acfarpzehntpre0thg8x7dp0ajw4ms328pe1mm17vd",
+    BASE_REGISTRAR: "cfxtest:acg08bujp0kmsup1zk11c9mad7zd6648eynbcjtndm",
+    NAME_WRAPPER: "cfxtest:acapc3y2j7atme3bawvaex18hs36tn40uu5h6j3mtu",
+    WEB3_CONTROLLER: "cfxtest:aca1858y5a9fnyx9rxd1c9knr517cd0e6afzzhgj01",
+    REVERSE_RECORDS: "cfxtest:acgddsj3kah2f4f4c6959bvc4732f4juyj90h0zmg2",
+    UTIL: "cfxtest:aca4w63ypgup8tryphprzfcrh5kh0hpbgasb2z3s0j",
     MULTICALL: "cfxtest:acexk57dcp2gcaydnyyz615b1993c319uup08gwwzs",
   },
-}
+};
 ```
 
 ## Install Dependence

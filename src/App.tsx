@@ -81,6 +81,10 @@ function App() {
           args: [NAME1],
         },
         {
+          method: "registrant",
+          args: [NAME2],
+        },
+        {
           method: "controller",
           args: [NAME1],
         },

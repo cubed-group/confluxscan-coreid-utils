@@ -50,7 +50,7 @@ export interface Contracts {
   REVERSE_RECORDS?: ExtendContract<
     typeof CONTRACT_TO_METHOD.REVERSE_RECORDS[number]
   >;
-  UTIL?: ExtendContract<typeof CONTRACT_TO_METHOD.Util[number]>;
+  UTIL?: ExtendContract<typeof CONTRACT_TO_METHOD.UTIL[number]>;
   MULTICALL?: ExtendContract<typeof CONTRACT_TO_METHOD.MULTICALL[number]>;
 }
 

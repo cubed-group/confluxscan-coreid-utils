@@ -21,7 +21,7 @@ export const CONTRACTS = {
     NAME_WRAPPER: "cfxtest:acapc3y2j7atme3bawvaex18hs36tn40uu5h6j3mtu",
     WEB3_CONTROLLER: "cfxtest:aca1858y5a9fnyx9rxd1c9knr517cd0e6afzzhgj01",
     REVERSE_RECORDS: "cfxtest:acgddsj3kah2f4f4c6959bvc4732f4juyj90h0zmg2",
-    UTIL: "cfxtest:ach3nemhabnduenb8w46abkwsd8701auspkzfea2bd",
+    UTIL: "cfxtest:aca4w63ypgup8tryphprzfcrh5kh0hpbgasb2z3s0j",
     MULTICALL: "cfxtest:acexk57dcp2gcaydnyyz615b1993c319uup08gwwzs",
   },
 };
@@ -41,10 +41,10 @@ export const CONTRACTS_NAME = [
 export const CONTRACT_TO_METHOD = {
   CNS_REGISTRY: ["controller"],
   REVERSE_REGISTRAR: [""],
-  BASE_REGISTRAR: ["nameExpires", "registrant"],
+  BASE_REGISTRAR: ["nameExpires"],
   NAME_WRAPPER: ["ownerOf", "getData", "userDomains"],
   WEB3_CONTROLLER: ["status"],
-  Util: ["address", "parent"],
+  UTIL: ["address", "parent", "registrant"],
   REVERSE_RECORDS: ["name", "names"],
   MULTICALL: ["aggregate"],
 };
