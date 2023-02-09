@@ -6,6 +6,7 @@ const ADDRESS2 = "cfxtest:aap7yfv4bhh5db8xrnu3w27v8dcjzwavty234a1hjz";
 // registered 666666.web3
 const NAME1 = "666666.web3";
 const NAME2 = "88888888.web3";
+const NAME2_SUBDOMAIN = "subdomain.88888888.web3";
 
 // Get CoreidUtil instance
 const coreidutil = new CoreidUtil();
