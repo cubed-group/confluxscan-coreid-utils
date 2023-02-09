@@ -1,3 +1,8 @@
+# Why use it
+This project is to simplify the use of conflux coreid, without paying attention to the specific function details of different contracts, and will also process parameters and return values, making it easier to call and view results.
+
+In addition, it supports the multicall method, which can call multiple different functions with apply different parameters in one RPC call
+
 # How to use
 ```javascript
 const ADDRESS1 = "cfxtest:aargwwstcp4axhxgkxfuy9pent1vtmaskjwr12xfsj"; 
@@ -52,7 +57,7 @@ const names = await coreidutil.names([ADDRESS1, ADDRESS1]);
 // Get status of name, results in: Valid, TooShort, Reserved, IllegalChar, Locked, Registered, SoldOut
 const status = await coreidutil.status(NAME1);
 
-// Call multiple different functions with different parameters in one RPC call
+// Call multiple different functions with apply different parameters in one RPC call
 const MULTICALL_PARAMS = [
   {
     method: "ownerOf",
@@ -150,7 +155,8 @@ const CONTRACTS = {
 ```
 
 ## Install Dependence
-Note: This project is depending on [js-conflux-sdk](https://www.npmjs.com/package/js-conflux-sdk), if your project does not use it, run `npm i -D js-conflux-sdk` to install first.
+Note: This project is depending on [js-conflux-sdk](https://www.npmjs.com/package/js-conflux-sdk),\
+if your project does not use it, run `npm i -D js-conflux-sdk` to install first.
 
 # Getting Started
 
