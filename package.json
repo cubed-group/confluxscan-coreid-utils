@@ -1,6 +1,6 @@
 {
   "name": "@cubed/coreid-util",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "description": "coreid util",
   "type": "module",
   "scripts": {
