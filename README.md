@@ -27,11 +27,17 @@ const coreidutil = new CoreidUtil();
 // Get owner of name
 const owner = await coreidutil.ownerOf(NAME1);
 
+// Get name info, includes: owner of name, fuses and expiration datetime of fuses
+const data = await coreid.getData(NAME1);
+
 // Get owned names of address
 const userDomains = await coreidutil.userDomains(ADDRESS1);
 
 // Get forward resolved address of name
 const forwardResolvedAddress = await coreidutil.address(NAME2);
+
+// Get parent name and forward resolved address of subdomain name
+const parent = await coreid.parent(NAME2_SUBDOMAIN);
 
 // Get expiration time
 const nameExpires = await coreidutil.nameExpires(NAME2);
@@ -46,10 +52,14 @@ const names = await coreidutil.names([ADDRESS1, ADDRESS1]);
 const status = await coreidutil.status(NAME1);
 
 // Call multiple different functions with different parameters in one RPC call
-const multicall = await coreidutil.multicall([
+const MULTICALL_PARAMS = [
   {
     method: "ownerOf",
     args: [NAME1],
+  },
+  {
+    method: "getData",
+    args: [NAME2],
   },
   {
     method: "userDomains",
@@ -58,6 +68,10 @@ const multicall = await coreidutil.multicall([
   {
     method: "address",
     args: [NAME2],
+  },
+  {
+    method: "parent",
+    args: [NAME2_SUBDOMAIN],
   },
   {
     method: "nameExpires",
@@ -75,7 +89,8 @@ const multicall = await coreidutil.multicall([
     method: "status",
     args: [NAME1],
   },
-]);
+];
+const MULTICALL_RESULT = await coreid.multicall(MULTICALL_PARAMS);
 ```
 
 # CoreID related resources

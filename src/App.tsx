@@ -6,6 +6,7 @@ const ADDRESS1 = "cfxtest:aargwwstcp4axhxgkxfuy9pent1vtmaskjwr12xfsj"; // 888888
 const ADDRESS2 = "cfxtest:aap7yfv4bhh5db8xrnu3w27v8dcjzwavty234a1hjz"; // 666666.web3
 const NAME1 = "666666.web3";
 const NAME2 = "88888888.web3";
+const NAME2_SUBDOMAIN = "subdomain.88888888.web3";
 
 function App() {
   useEffect(() => {
@@ -23,6 +24,9 @@ function App() {
       // const address = await coreid.address(NAME2);
       // console.log("address is: ", address);
 
+      // const parent = await coreid.parent(NAME2_SUBDOMAIN);
+      // console.log("parent is: ", parent);
+
       // const nameExpires = await coreid.nameExpires(NAME2);
       // console.log("nameExpires is: ", nameExpires);
 
@@ -37,7 +41,7 @@ function App() {
 
       // console.log("-----------");
 
-      const multicall = await coreid.multicall([
+      const MULTICALL_PARAMS = [
         {
           method: "ownerOf",
           args: [NAME1],
@@ -55,6 +59,10 @@ function App() {
           args: [NAME2],
         },
         {
+          method: "parent",
+          args: [NAME2_SUBDOMAIN],
+        },
+        {
           method: "nameExpires",
           args: [NAME2],
         },
@@ -70,9 +78,18 @@ function App() {
           method: "status",
           args: [NAME1],
         },
-      ]);
+      ];
+      const MULTICALL_RESULT = await coreid.multicall(MULTICALL_PARAMS);
 
-      console.log("multicall is: ", multicall);
+      console.log(
+        MULTICALL_RESULT.reduce(
+          (prev: any, curr: any, i: number) => ({
+            ...prev,
+            [MULTICALL_PARAMS[i].method]: curr,
+          }),
+          {}
+        )
+      );
     }
 
     main().catch(console.log);

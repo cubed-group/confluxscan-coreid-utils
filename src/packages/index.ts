@@ -119,6 +119,7 @@ export default class CoreidUtils {
         contract: ContractFunc;
         params: any;
         method: string;
+        callParams: any;
       }> = [];
 
       for (let call of calls) {
@@ -132,6 +133,7 @@ export default class CoreidUtils {
           const cContract =
             // @ts-ignore
             this.contracts[cName]?.[METHOD_MAP[method] || method];
+
           // @ts-ignore
           const params = this[`${method}_params`](...args);
           const encodeData = cContract?.encodeData(params);
@@ -140,8 +142,10 @@ export default class CoreidUtils {
             name: cName,
             addr: cAddr,
             contract: cContract as ContractFunc,
+            // @ts-ignore
             params: [cAddr, encodeData],
             method,
+            callParams: params.callParams,
           });
         }
       }
@@ -150,12 +154,13 @@ export default class CoreidUtils {
         list.map((l) => l.params)
       );
 
-      return data.map((d: any, i: number) =>
+      return data.map((d: any, i: number) => {
         // @ts-ignore
-        this[`${list[i].method}_return`](
-          list[i].contract.decodeOutputs(format.hex(d))
-        )
-      );
+        return this[`${list[i].method}_return`](
+          list[i].contract.decodeOutputs(format.hex(d)),
+          list[i].callParams
+        );
+      });
     } catch (error) {
       console.log("multicall error: ", error);
       return error;
@@ -323,6 +328,37 @@ export default class CoreidUtils {
       await this.multicall([
         {
           method: "status",
+          args: [name],
+        },
+      ])
+    )[0];
+  }
+
+  private parent_params(name: Name) {
+    const arr = name.split(".");
+
+    if (arr.length < 3) {
+      throw new Error("no sub domain");
+    }
+
+    const p = [namehash(arr.slice(1).join("."))];
+    // @ts-ignore
+    p.callParams = name;
+    return p;
+  }
+
+  private parent_return(data: any, callParams: any) {
+    return {
+      name: callParams.split(".").slice(1).join("."),
+      address: data,
+    };
+  }
+
+  async parent(name: Name) {
+    return (
+      await this.multicall([
+        {
+          method: "parent",
           args: [name],
         },
       ])

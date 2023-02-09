@@ -36,10 +36,10 @@ export const CONTRACTS_NAME = [
 // if the method has a different function name than the abi accepts, the relationship needs to be defined in the METHOD_MAP map
 export const CONTRACT_TO_METHOD = {
   REVERSE_REGISTRAR: [""],
-  BASE_REGISTRAR: ["nameExpires"],
+  BASE_REGISTRAR: ["nameExpires", "registrant"],
   NAME_WRAPPER: ["ownerOf", "getData", "userDomains"],
   WEB3_CONTROLLER: ["status"],
-  PUBLIC_RESOLVER: ["address"], // TODO, this is used to get resolver contract address, not forward resolved address
+  PUBLIC_RESOLVER: ["address", "parent"], // TODO, this is used to get resolver contract address, not forward resolved address
   REVERSE_RECORDS: ["name", "names"],
   MULTICALL: ["aggregate"],
 };
@@ -50,6 +50,8 @@ export const METHOD_MAP = {
   name: "getNames(address[])",
   names: "getNames(address[])",
   status: "labelStatus",
+  registrant: "ownerOf",
+  parent: "addr(bytes32)",
 } as const;
 
 export const NETWORK = {
