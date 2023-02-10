@@ -17,7 +17,7 @@ const NAME2_SUBDOMAIN = "subdomain.88888888.web3";
 
 // Get CoreidUtil instance
 const coreidutil = new CoreidUtil();
-// Get CoreidUtil instance with optional config:
+// Get CoreidUtil instance with optional config, all options are individually configurable:
 // const coreidutilWithConfig = new CoreidUtil({
 //   networkId: 1029,
 //   rpc: "https://main.confluxrpc.com",
@@ -173,10 +173,16 @@ const CONTRACTS = {
 };
 ```
 
+# Please Note
+
+## Environment That Can Be Used
+
+At present, the contract is only deployed on the testnet and cannot be used on the mainnet.
+
 ## Install Dependence
 
-Note: This project is depending on [js-conflux-sdk](https://www.npmjs.com/package/js-conflux-sdk),\
-if your project does not use it, run `npm i -D js-conflux-sdk` to install first.
+Note: This project is depending on [js-conflux-sdk](https://www.npmjs.com/package/js-conflux-sdk), [buffer](https://www.npmjs.com/package/buffer) and [bignumber.js](https://www.npmjs.com/package/bignumber.js)\
+if your project does not use it, run `npm i -D js-conflux-sdk buffer bignumber.js` to install first.
 
 # Getting Started
 
