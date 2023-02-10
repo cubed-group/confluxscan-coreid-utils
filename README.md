@@ -1,13 +1,15 @@
 # Why use it
+
 This project is to simplify the use of conflux coreid, without paying attention to the specific function details of different contracts, and will also process parameters and return values, making it easier to call and view results.
 
 In addition, it supports the multicall method, which can call multiple different functions with apply different parameters in one RPC call
 
 # How to use
+
 ```javascript
-const ADDRESS1 = "cfxtest:aargwwstcp4axhxgkxfuy9pent1vtmaskjwr12xfsj"; 
+const ADDRESS1 = "cfxtest:aargwwstcp4axhxgkxfuy9pent1vtmaskjwr12xfsj";
 // registered 88888888.web3, xiaokonglong.web3
-const ADDRESS2 = "cfxtest:aap7yfv4bhh5db8xrnu3w27v8dcjzwavty234a1hjz"; 
+const ADDRESS2 = "cfxtest:aap7yfv4bhh5db8xrnu3w27v8dcjzwavty234a1hjz";
 // registered 666666.web3
 const NAME1 = "666666.web3";
 const NAME2 = "88888888.web3";
@@ -45,10 +47,16 @@ const parent = await coreid.parent(NAME2_SUBDOMAIN);
 // Get expiration time
 const nameExpires = await coreidutil.nameExpires(NAME2);
 
-// Get reverse resolved record of address
+// Get reverse resolved name of address
+// Note:
+//   For security reasons, when the forward resolved record and reverse resolved record configs are inconsistent, the reverse resolved name will return empty. For detail reference:
+//   https://web3-username.gitbook.io/.web3-username-docs/contract-api-reference/publicresolver#xu-yao-zhu-yi-de-shi
 const name = await coreidutil.name(ADDRESS1);
 
-// Get reverse resolved records of multiple addresses
+// Get reverse resolved names of multiple addresses
+// Note:
+//   For security reasons, when the forward resolved record and reverse resolved record configs are inconsistent, the reverse resolved name will return empty. For detail reference:
+//   https://web3-username.gitbook.io/.web3-username-docs/contract-api-reference/publicresolver#xu-yao-zhu-yi-de-shi
 const names = await coreidutil.names([ADDRESS1, ADDRESS1]);
 
 // Get status of name, results in: Valid, TooShort, Reserved, IllegalChar, Locked, Registered, SoldOut
@@ -109,14 +117,15 @@ const MULTICALL_RESULT = await coreid.multicall(MULTICALL_PARAMS);
 # CoreID related resources
 
 - SDK: [web3ns.js](https://github.com/web3-identity/web3ns.js)
-- Docs: 
+- Docs:
   - [Github](https://github.com/web3-identity/cns-contracts)
   - [Developer Docs](https://web3-username.gitbook.io)
   - [Contracts Docs](https://github.com/web3-identity/cns-contracts/tree/master/docs)
   - [Demo](https://github.com/zctocm/cns-demo)
   - [Contracts API](https://github.com/web3-identity/cns-contracts/blob/master/docs/index.md#solidity-api)
-  
+
 # CoreID util project default config:
+
 ```javascript
 const NETWORK = {
   mainnet: 1029,
@@ -135,7 +144,7 @@ const ROOT = ".web3";
 const RPC = {
   mainnet: "https://main.confluxrpc.com",
   testnet: "https://test.confluxrpc.com",
-}
+};
 
 const CONTRACTS = {
   // TBD
@@ -165,6 +174,7 @@ const CONTRACTS = {
 ```
 
 ## Install Dependence
+
 Note: This project is depending on [js-conflux-sdk](https://www.npmjs.com/package/js-conflux-sdk),\
 if your project does not use it, run `npm i -D js-conflux-sdk` to install first.
 
