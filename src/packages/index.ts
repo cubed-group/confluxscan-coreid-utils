@@ -46,6 +46,14 @@ export default class CoreidUtils {
     return prev;
   }, {} as Contracts);
 
+  static supportMethods = SUPPORT_METHODS;
+
+  static utils = {
+    namehash,
+    dnsNameNotationDecode,
+    labelhash,
+  };
+
   constructor(config?: Config) {
     if (config) {
       this.config = {
@@ -172,8 +180,6 @@ export default class CoreidUtils {
       return error;
     }
   }
-
-  static supportMethods = SUPPORT_METHODS;
 
   private ownerOf_params(name: Name) {
     return [namehash(name)];

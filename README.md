@@ -14,6 +14,7 @@ const ADDRESS2 = "cfxtest:aap7yfv4bhh5db8xrnu3w27v8dcjzwavty234a1hjz";
 const NAME1 = "666666.web3";
 const NAME2 = "88888888.web3";
 const NAME2_SUBDOMAIN = "subdomain.88888888.web3";
+const DNS_NOTATION = "\x05hello\x04web3\x00";
 
 // Get CoreidUtil instance
 const coreidutil = new CoreidUtil();
@@ -112,6 +113,12 @@ const MULTICALL_PARAMS = [
   },
 ];
 const MULTICALL_RESULT = await coreid.multicall(MULTICALL_PARAMS);
+
+// utils
+const {namehash, dnsNameNotationDecode, labelhash } = CoreidUtil.utils;
+namehash(NAME1);
+labelhash(NAME1.split('.')[0]);
+dnsNameNotationDecode(DNS_NOTATION);
 ```
 
 # CoreID related resources

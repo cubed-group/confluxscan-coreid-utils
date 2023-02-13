@@ -1,17 +1,30 @@
 import { useEffect } from "react";
 import "./App.css";
-import CoreidUtils from "./packages";
+import CoreidUtil from "./packages";
 
 const ADDRESS1 = "cfxtest:aargwwstcp4axhxgkxfuy9pent1vtmaskjwr12xfsj"; // 88888888.web3, xiaokonglong.web3
 const ADDRESS2 = "cfxtest:aap7yfv4bhh5db8xrnu3w27v8dcjzwavty234a1hjz"; // 666666.web3
 const NAME1 = "666666.web3";
 const NAME2 = "88888888.web3";
 const NAME2_SUBDOMAIN = "subdomain.88888888.web3";
+const DNS_NOTATION = "\x05hello\x04web3\x00";
 
 function App() {
   useEffect(() => {
     async function main() {
-      const coreid = new CoreidUtils();
+      const coreid = new CoreidUtil();
+
+      // const { namehash, dnsNameNotationDecode, labelhash } = CoreidUtil.utils;
+      // console.log(`namehash(${NAME1}): `, namehash(NAME1));
+      // console.log(
+      //   `labelhash(${NAME1.split(".")[0]}): `,
+      //   labelhash(NAME1.split(".")[0])
+      // );
+      // console.log(
+      //   `dnsNameNotationDecode(${DNS_NOTATION}): `,
+      //   dnsNameNotationDecode(DNS_NOTATION)
+      // );
+
       // const owner = await coreid.ownerOf(NAME1);
       // console.log("owner is: ", owner);
 
