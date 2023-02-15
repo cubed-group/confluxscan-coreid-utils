@@ -6,6 +6,19 @@ In addition, it supports the multicall method, which can call multiple different
 
 # How to use
 
+## Install Dependence
+
+`npm i @web3identity/cns-util`
+
+Note: This project is depending on [js-conflux-sdk](https://www.npmjs.com/package/js-conflux-sdk), [buffer](https://www.npmjs.com/package/buffer) and [bignumber.js](https://www.npmjs.com/package/bignumber.js)\
+if your project does not use it, run `npm i -D js-conflux-sdk buffer bignumber.js` to install first.
+
+## Environment That Can Be Used
+
+At present, the contract is only deployed on the testnet and cannot be used on the mainnet.
+
+## Code Example
+
 ```javascript
 const ADDRESS1 = "cfxtest:aargwwstcp4axhxgkxfuy9pent1vtmaskjwr12xfsj";
 // registered 88888888.web3, xiaokonglong.web3
@@ -115,13 +128,13 @@ const MULTICALL_PARAMS = [
 const MULTICALL_RESULT = await cns.multicall(MULTICALL_PARAMS);
 
 // utils
-const {namehash, dnsNameNotationDecode, labelhash } = CNSUtil.utils;
+const { namehash, dnsNameNotationDecode, labelhash } = CNSUtil.utils;
 namehash(NAME1);
-labelhash(NAME1.split('.')[0]);
+labelhash(NAME1.split(".")[0]);
 dnsNameNotationDecode(DNS_NOTATION);
 ```
 
-# CoreID related resources
+# CNS related resources
 
 - SDK: [web3ns.js](https://github.com/web3-identity/web3ns.js)
 - Docs:
@@ -131,7 +144,7 @@ dnsNameNotationDecode(DNS_NOTATION);
   - [Demo](https://github.com/zctocm/cns-demo)
   - [Contracts API](https://github.com/web3-identity/cns-contracts/blob/master/docs/index.md#solidity-api)
 
-# CoreID util project default config:
+# CNS util project default config:
 
 ```javascript
 const NETWORK = {
@@ -179,17 +192,6 @@ const CONTRACTS = {
   },
 };
 ```
-
-# Please Note
-
-## Environment That Can Be Used
-
-At present, the contract is only deployed on the testnet and cannot be used on the mainnet.
-
-## Install Dependence
-
-Note: This project is depending on [js-conflux-sdk](https://www.npmjs.com/package/js-conflux-sdk), [buffer](https://www.npmjs.com/package/buffer) and [bignumber.js](https://www.npmjs.com/package/bignumber.js)\
-if your project does not use it, run `npm i -D js-conflux-sdk buffer bignumber.js` to install first.
 
 # Getting Started
 
