@@ -18,9 +18,9 @@ export default defineConfig({
     lib: {
       // Could also be a dictionary or array of multiple entry points
       entry: resolve(__dirname, "src/packages/index.ts"),
-      name: "CoreidUtil",
+      name: "CNSUtil",
       // the proper extensions will be added
-      fileName: "coreid-util",
+      fileName: "cns-util",
     },
     rollupOptions: {
       // 确保外部化处理那些你不想打包进库的依赖

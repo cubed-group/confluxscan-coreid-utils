@@ -1,7 +1,7 @@
 {
-  "name": "@cubed/coreid-util",
+  "name": "@web3identity/cns-util",
   "version": "0.1.18",
-  "description": "coreid util",
+  "description": "cns util",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -9,17 +9,21 @@
     "preview": "vite preview"
   },
   "keywords": [
-    "coreid",
-    "CNS"
+    "web3identity",
+    "cns",
+    "util"
   ],
   "engines": {
     "npm": ">6.14.0",
     "node": ">14.15.0"
   },
   "author": "0x74616e67 <0x74616e67@gmail.com>",
-  "license": "ISC",
-  "main": "./dist/coreid-util.umd.cjs",
-  "module": "./dist/coreid-util.js",
+  "contributors": [
+    "0x74616e67 <0x74616e67@gmail.com>"
+  ],
+  "license": "MIT",
+  "main": "./dist/cns-util.umd.cjs",
+  "module": "./dist/cns-util.js",
   "devDependencies": {
     "@rollup/plugin-typescript": "^11.0.0",
     "@types/node": "^16.18.11",

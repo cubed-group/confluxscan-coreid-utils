@@ -1,6 +1,6 @@
 # Why use it
 
-This project is to simplify the use of conflux coreid, without paying attention to the specific function details of different contracts, and will also process parameters and return values, making it easier to call and view results.
+This project is to simplify the use of conflux cns, without paying attention to the specific function details of different contracts, and will also process parameters and return values, making it easier to call and view results.
 
 In addition, it supports the multicall method, which can call multiple different functions with apply different parameters in one RPC call
 
@@ -16,10 +16,10 @@ const NAME2 = "88888888.web3";
 const NAME2_SUBDOMAIN = "subdomain.88888888.web3";
 const DNS_NOTATION = "\x05hello\x04web3\x00";
 
-// Get CoreidUtil instance
-const coreidutil = new CoreidUtil();
-// Get CoreidUtil instance with optional config, all options are individually configurable:
-// const coreidutilWithConfig = new CoreidUtil({
+// Get CNSUtil instance
+const cnsutil = new CNSUtil();
+// Get CNSUtil instance with optional config, all options are individually configurable:
+// const cnsutilWithConfig = new CNSUtil({
 //   networkId: 1029,
 //   rpc: "https://main.confluxrpc.com",
 //   contracts: { // note: contract name should be uppercase
@@ -34,40 +34,40 @@ const coreidutil = new CoreidUtil();
 // });
 
 // Get owner of name
-const owner = await coreidutil.ownerOf(NAME1);
+const owner = await cnsutil.ownerOf(NAME1);
 
 // Get owned names of address
-const userDomains = await coreidutil.userDomains(ADDRESS1);
+const userDomains = await cnsutil.userDomains(ADDRESS1);
 
 // Get forward resolved address of name
-const forwardResolvedAddress = await coreidutil.address(NAME2);
+const forwardResolvedAddress = await cnsutil.address(NAME2);
 
 // Get parent name and forward resolved address of subdomain name
-const parent = await coreid.parent(NAME2_SUBDOMAIN);
+const parent = await cns.parent(NAME2_SUBDOMAIN);
 
 // Get expiration time
-const nameExpires = await coreidutil.nameExpires(NAME2);
+const nameExpires = await cnsutil.nameExpires(NAME2);
 
 // Get reverse resolved name of address
 // Note:
 //   For security reasons, when the forward resolved record and reverse resolved record configs are inconsistent, the reverse resolved name will return empty. For detail reference:
 //   https://web3-username.gitbook.io/.web3-username-docs/contract-api-reference/publicresolver#xu-yao-zhu-yi-de-shi
-const name = await coreidutil.name(ADDRESS1);
+const name = await cnsutil.name(ADDRESS1);
 
 // Get reverse resolved names of multiple addresses
 // Note:
 //   For security reasons, when the forward resolved record and reverse resolved record configs are inconsistent, the reverse resolved name will return empty. For detail reference:
 //   https://web3-username.gitbook.io/.web3-username-docs/contract-api-reference/publicresolver#xu-yao-zhu-yi-de-shi
-const names = await coreidutil.names([ADDRESS1, ADDRESS1]);
+const names = await cnsutil.names([ADDRESS1, ADDRESS1]);
 
 // Get status of name, results in: Valid, TooShort, Reserved, IllegalChar, Locked, Registered, SoldOut
-const status = await coreidutil.status(NAME1);
+const status = await cnsutil.status(NAME1);
 
 // Get registrant contract address of name
-const registrant = await coreid.registrant(NAME1);
+const registrant = await cns.registrant(NAME1);
 
 // Get controller contract address of name
-const controller = await coreid.controller(NAME1);
+const controller = await cns.controller(NAME1);
 
 // Call multiple different functions with apply different parameters in one RPC call
 const MULTICALL_PARAMS = [
@@ -112,10 +112,10 @@ const MULTICALL_PARAMS = [
     args: [NAME1],
   },
 ];
-const MULTICALL_RESULT = await coreid.multicall(MULTICALL_PARAMS);
+const MULTICALL_RESULT = await cns.multicall(MULTICALL_PARAMS);
 
 // utils
-const {namehash, dnsNameNotationDecode, labelhash } = CoreidUtil.utils;
+const {namehash, dnsNameNotationDecode, labelhash } = CNSUtil.utils;
 namehash(NAME1);
 labelhash(NAME1.split('.')[0]);
 dnsNameNotationDecode(DNS_NOTATION);

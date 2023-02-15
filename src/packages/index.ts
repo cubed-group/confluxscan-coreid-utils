@@ -32,7 +32,7 @@ import {
 import { namehash, dnsNameNotationDecode, labelhash } from "./utils";
 import BigNumber from "bignumber.js";
 
-export default class CoreidUtils {
+export default class CNSUtils {
   readonly config = {
     networkId: NETWORK[DEFAULT_NETWORK],
     rpc: RPC[DEFAULT_NETWORK],
@@ -109,7 +109,7 @@ export default class CoreidUtils {
 
   /**
    * @example:
-   * coreidutils.multicall([
+   * cnsutil.multicall([
    *   {
    *     method: 'ownerOf',
    *     args: ['666666.web3']
@@ -139,7 +139,7 @@ export default class CoreidUtils {
       for (let call of calls) {
         const { method, args } = call;
 
-        if (!CoreidUtils.supportMethods.includes(method)) {
+        if (!CNSUtils.supportMethods.includes(method)) {
           throw new Error(`${method} is not supported`);
         } else {
           const cName: keyof ContractsAddress = METHOD_TO_CONTRACT[method];
