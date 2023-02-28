@@ -1,6 +1,6 @@
 {
   "name": "@web3identity/cns-util",
-  "version": "0.1.22",
+  "version": "0.1.23",
   "description": "cns util",
   "type": "module",
   "scripts": {
