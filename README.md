@@ -13,10 +13,6 @@ In addition, it supports the multicall method, which can call multiple different
 Note: This project is depending on [js-conflux-sdk](https://www.npmjs.com/package/js-conflux-sdk), [buffer](https://www.npmjs.com/package/buffer) and [bignumber.js](https://www.npmjs.com/package/bignumber.js)\
 if your project does not use it, run `npm i -D js-conflux-sdk buffer bignumber.js` to install first.
 
-## Environment That Can Be Used
-
-At present, the contract is only deployed on the testnet and cannot be used on the mainnet.
-
 ## Code Example
 
 ```javascript
@@ -167,16 +163,16 @@ const RPC = {
 };
 
 const CONTRACTS = {
-  // TBD
+  // come from: https://web3-username.gitbook.io/.web3-username-docs/deployment#conflux-core-mainnet
   mainnet: {
-    CNS_REGISTRY: "",
-    REVERSE_REGISTRAR: "",
-    BASE_REGISTRAR: "",
-    NAME_WRAPPER: "",
-    WEB3_CONTROLLER: "",
-    PUBLIC_RESOLVER: "",
-    REVERSE_RECORDS: "",
-    UTIL: "",
+    CNS_REGISTRY: "cfx:acemru7fu1u8brtyn3hrtae17kbcd4pd9uwbspvnnm",
+    REVERSE_REGISTRAR: "cfx:acfarpzehntpre0thg8x7dp0ajw4ms328ps634v1zk",
+    BASE_REGISTRAR: "cfx:acg08bujp0kmsup1zk11c9mad7zd6648eybmv2kbha",
+    NAME_WRAPPER: "cfx:acdpx5pyc9xkry6x84bdstvt52grxpj69uadprjs7p",
+    WEB3_CONTROLLER: "cfx:ace0bgf408jt5kmw34k3mxx03tpsfpt8by010ma8ww",
+    PUBLIC_RESOLVER: "cfx:acasaruvgf44ss67pxzfs1exvj7k2vyt863f72n6up",
+    REVERSE_RECORDS: "cfx:achsgpgs5dgpmgpj2zd87apj6js33c07pjth6k33mj",
+    UTIL: "cfx:ace8hzgt9rcwejnh7dw1861r881g9rcgyy04r298hn",
     MULTICALL: "cfx:achfcd4z000fw2977dz09z8nat38wxbfrynkxpe15v",
   },
   // come from: https://web3-username.gitbook.io/.web3-username-docs/deployment#testnet
