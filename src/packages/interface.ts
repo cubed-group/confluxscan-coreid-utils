@@ -17,9 +17,9 @@ export type ContractsAddress = {
 };
 
 export interface Config {
-  networkId: NetworkId;
-  contracts: ContractsAddress;
-  rpc: Rpc;
+  networkId?: NetworkId;
+  contracts?: ContractsAddress;
+  rpc?: Rpc;
 }
 
 export type Name = string;

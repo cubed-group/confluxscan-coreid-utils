@@ -7,10 +7,9 @@ export const CONTRACTS = {
     BASE_REGISTRAR: "cfx:acg08bujp0kmsup1zk11c9mad7zd6648eybmv2kbha",
     NAME_WRAPPER: "cfx:acdpx5pyc9xkry6x84bdstvt52grxpj69uadprjs7p",
     WEB3_CONTROLLER: "cfx:ace0bgf408jt5kmw34k3mxx03tpsfpt8by010ma8ww",
-    PUBLIC_RESOLVER: "cfx:acasaruvgf44ss67pxzfs1exvj7k2vyt863f72n6up",
     REVERSE_RECORDS: "cfx:achsgpgs5dgpmgpj2zd87apj6js33c07pjth6k33mj",
     UTIL: "cfx:ace8hzgt9rcwejnh7dw1861r881g9rcgyy04r298hn",
-    MULTICALL: "cfx:achfcd4z000fw2977dz09z8nat38wxbfrynkxpe15v",
+    MULTICALL: "cfx:acf0y8g4x1r8he6xhv9z0m3j3y5rxjhs5j4mr83808",
   },
   // come from: https://web3-username.gitbook.io/.web3-username-docs/deployment#testnet
   testnet: {
