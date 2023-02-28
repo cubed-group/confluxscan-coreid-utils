@@ -56,13 +56,15 @@ export default class CNSUtils {
 
   constructor(config?: Config) {
     if (config) {
+      const networkId = config.networkId || this.config.networkId;
+      const network = NETWORK[networkId] as "mainnet" | "testnet";
+      const rpc = RPC[network];
+      const contracts = config.contracts || CONTRACTS[network];
+
       this.config = {
-        ...this.config,
-        ...config,
-        contracts: {
-          ...this.config.contracts,
-          ...config?.contracts,
-        },
+        networkId,
+        rpc,
+        contracts,
       };
     }
 

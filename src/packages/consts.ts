@@ -59,10 +59,10 @@ export const METHOD_MAP = {
   controller: "owner",
 } as const;
 
-export const NETWORK = {
-  mainnet: 1029,
-  testnet: 1,
-};
+export enum NETWORK {
+  mainnet = 1029,
+  testnet = 1,
+}
 
 export const RPC = {
   mainnet: "https://main.confluxrpc.com",
