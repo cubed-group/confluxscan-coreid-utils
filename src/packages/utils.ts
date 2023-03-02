@@ -26,21 +26,27 @@ export function namehash(inputName: string) {
 // @see http://www.tcpipguide.com/free/t_DNSNameNotationandMessageCompressionTechnique.htm#:~:text=Instead,%20DNS%20uses%20a%20special,are%20encoded,%20one%20per%20byte.
 // '\x05hello\x03com\x00' => hello.com
 export function dnsNameNotationDecode(message: string) {
-  const buf = Buffer.from(message, "utf-8");
-  const labels = [];
-  let start = 0;
-  while (start < buf.length) {
-    const length = buf[start];
-    if (length === 0 && buf.length - start !== 1) {
-      throw new Error("Invalid DNS name notation");
-    }
-    if (length === 0) {
-      break;
-    }
-
-    const label = buf.subarray(start + 1, start + length + 1).toString("utf-8");
-    labels.push(label);
-    start = start + length + 1;
-  }
-  return labels.join(".");
+  let tmp = Array.from(message).slice(1);
+  tmp = tmp.slice(0, tmp.length - 1);
+  const dot = tmp.findIndex((c) => c === "\x04" || c === "\x03");
+  return tmp.slice(0, dot).join("") + "." + tmp.slice(dot + 1).join("");
 }
+// export function dnsNameNotationDecode(message: string) {
+//   const buf = Buffer.from(message, "utf-8");
+//   const labels = [];
+//   let start = 0;
+//   while (start < buf.length) {
+//     const length = buf[start];
+//     if (length === 0 && buf.length - start !== 1) {
+//       throw new Error("Invalid DNS name notation");
+//     }
+//     if (length === 0) {
+//       break;
+//     }
+
+//     const label = buf.subarray(start + 1, start + length + 1).toString("utf-8");
+//     labels.push(label);
+//     start = start + length + 1;
+//   }
+//   return labels.join(".");
+// }
