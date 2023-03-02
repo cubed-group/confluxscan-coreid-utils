@@ -24,6 +24,10 @@
   "license": "MIT",
   "main": "./dist/cns-util.umd.cjs",
   "module": "./dist/cns-util.js",
+  "dependencies": {
+    "bignumber.js": "^9.1.1",
+    "buffer": "^6.0.3"
+  },
   "devDependencies": {
     "@rollup/plugin-typescript": "^11.0.0",
     "@types/node": "^16.18.11",
